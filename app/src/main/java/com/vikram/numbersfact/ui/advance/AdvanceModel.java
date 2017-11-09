@@ -1,0 +1,33 @@
+package com.vikram.numbersfact.ui.advance;
+
+import android.util.Log;
+
+import com.vikram.numbersfact.dataservice.AppDataClient;
+import com.vikram.numbersfact.dataservice.RetroResponse;
+import com.vikram.numbersfact.request.AdvanceRequest;
+
+/**
+ * Created by M1032130 on 10/27/2017.
+ */
+
+public class AdvanceModel implements IAdvanceModel {
+
+    @Override
+    public void getSpecificNumberDetails(final String number, final String category, final OnAdvanceRequestFinishedListener listener) {
+        new AdvanceRequest(number, category, new AppDataClient
+                .OnDataReceived<RetroResponse>() {
+
+            @Override
+            public void onDataSuccess(RetroResponse response) {
+                Log.d("getNumberDetails", "onDataSuccess " + response.getText());
+                listener.onSuccess(response);
+            }
+
+            @Override
+            public void onDataFailure(String error) {
+                Log.d("getNumberDetails", "onDataFailure " + error.toString());
+                listener.onFailure(error);
+            }
+        }).callService();
+    }
+}

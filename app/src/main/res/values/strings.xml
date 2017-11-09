@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">NumbersFact</string>
+    <string name="category_prompt">Choose a category</string>
+    <string name="input_number">Input number</string>
+    <string name="go_to_advance">Go to advance</string>
+    <string name="basic">Basic Feature</string>
+    <string name="advance">Advance Feature</string>
+
+    <string-array name="categories">
+        <item>Trivia</item>
+        <item>Math</item>
+        <item>Date</item>
+        <item>Year</item>
+    </string-array>
+
+</resources>
